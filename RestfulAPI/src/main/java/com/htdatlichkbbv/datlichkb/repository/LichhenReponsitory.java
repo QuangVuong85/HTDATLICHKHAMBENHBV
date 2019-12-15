@@ -20,4 +20,6 @@ public interface LichhenReponsitory extends JpaRepository<Lichhen, String> {
             String mabn,
             Short trangthai,
             String ghichu);
+
+
 }

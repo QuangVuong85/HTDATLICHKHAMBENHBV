@@ -14,18 +14,18 @@ import javax.persistence.*;
 public class ChitietdichvuId implements Serializable {
 
 
-    @Column(name = "MaDV", length = 10, nullable = false)
-    private String madv;
+    @Column(name="MaGK" ,length=10 ,nullable=false)
+    private String magk;
 
     @Column(name = "MaLichHen", length = 10, nullable = false)
     private String malichhen;
 
-    public String getMadv() {
-        return madv;
+    public String getMagk() {
+        return magk;
     }
 
-    public void setMadv(String madv) {
-        this.madv = madv;
+    public void setMagk (String magk) {
+        this.magk = magk;
     }
 
     public String getMalichhen() {

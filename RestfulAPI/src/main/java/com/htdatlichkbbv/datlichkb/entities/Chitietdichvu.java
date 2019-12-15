@@ -42,16 +42,16 @@ public class Chitietdichvu implements Serializable {
     private String ghichu;
 
     @JsonIgnore
-    @MapsId("MaDV")
+    @MapsId("MaGK")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "MaDV", referencedColumnName = "MaDV",
+    @JoinColumn(name = "MaGK", referencedColumnName = "MaGK",
             nullable = false, unique = false, insertable = true, updatable = true)
-    private Dichvu madv;
+    private Goikham magk;
 
     @JsonIgnore
-    @Column(name = "MaDV", length = 10, nullable = false,
+    @Column(name = "MaGK", length = 10, nullable = false,
             unique = false, insertable = false, updatable = false)
-    private String madv_;
+    private String magk_;
 
     @JsonIgnore
     @MapsId("MaLichHen")
@@ -75,12 +75,12 @@ public class Chitietdichvu implements Serializable {
      * All field constructor
      */
     public Chitietdichvu(
-            String madv,
+            String magk,
             String malichhen,
             Timestamp thoigiandat,
             String ghichu) {
         this(
-                madv,
+                magk,
                 malichhen,
                 thoigiandat,
                 ghichu
@@ -88,7 +88,7 @@ public class Chitietdichvu implements Serializable {
     }
 
     public Chitietdichvu(
-            String madv,
+            String magk,
             String malichhen,
             Timestamp thoigiandat,
             String ghichu
@@ -99,10 +99,10 @@ public class Chitietdichvu implements Serializable {
         setThoigiandat(thoigiandat);
         setGhichu(ghichu);
         //parents
-        if (setRelationship && madv != null) {
-            this.madv = new Dichvu();
-            this.madv.setMadv(madv);
-            setMadv_(madv);
+        if (setRelationship && magk != null) {
+            this.magk = new Goikham();
+            this.magk.setMagk(magk);
+            setMagk_(magk);
         }
         if (setRelationship && malichhen != null) {
             this.malichhen = new Lichhen();
@@ -113,7 +113,7 @@ public class Chitietdichvu implements Serializable {
 
     public Chitietdichvu flat() {
         return new Chitietdichvu(
-                getChitietdichvuId__().getMadv(),
+                getChitietdichvuId__().getMagk(),
                 getChitietdichvuId__().getMalichhen(),
                 getThoigiandat(),
                 getGhichu()
@@ -147,21 +147,20 @@ public class Chitietdichvu implements Serializable {
         this.ghichu = ghichu;
     }
 
-
-    public Dichvu getMadv() {
-        return madv;
+    public Goikham getMagk() {
+        return magk;
     }
 
-    public void setMadv(Dichvu madv) {
-        this.madv = madv;
+    public void setMagk(Goikham magk) {
+        this.magk = magk;
     }
 
-    public String getMadv_() {
-        return madv_;
+    public String getMagk_() {
+        return magk_;
     }
 
-    public void setMadv_(String madv) {
-        this.madv_ = madv;
+    public void setMagk_(String magk) {
+        this.magk_ = magk;
     }
 
     public Lichhen getMalichhen() {

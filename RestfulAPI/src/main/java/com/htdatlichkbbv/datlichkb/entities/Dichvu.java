@@ -41,9 +41,14 @@ public class Dichvu implements Serializable {
     private java.math.BigDecimal dongia;
 
     @JsonIgnore
-    @OneToMany(targetEntity = com.htdatlichkbbv.datlichkb.entities.Chitietdichvu.class,
-            fetch = FetchType.LAZY, mappedBy = "chitietdichvuId__.madv", cascade = CascadeType.REMOVE)
-    private Set<Chitietdichvu> chitietdichvuDichvuViaMadv = new HashSet<Chitietdichvu>();
+    @ManyToOne (fetch=FetchType.LAZY )
+    @JoinColumn(name="MaBS", referencedColumnName = "MaBS" ,
+            nullable=true , unique=false , insertable=false, updatable=false)
+    private Bacsi mabs;
+
+    @Column(name="MaBS" , length=10 ,
+            nullable=true , unique=false, insertable=true, updatable=true)
+    private String mabs_;
 
     /**
      * Default constructor
@@ -57,32 +62,41 @@ public class Dichvu implements Serializable {
     public Dichvu(
             String madv,
             String tendv,
-            java.math.BigDecimal dongia) {
+            java.math.BigDecimal dongia,
+            String mabs) {
         this(
                 madv,
                 tendv,
-                dongia
-                , true);
+                dongia,
+                mabs
+                ,true);
     }
 
     public Dichvu(
             String madv,
             String tendv,
-            java.math.BigDecimal dongia
+            java.math.BigDecimal dongia,
+            String mabs
             , boolean setRelationship) {
         //primary keys
-        setMadv(madv);
+        setMadv (madv);
         //attributes
-        setTendv(tendv);
-        setDongia(dongia);
+        setTendv (tendv);
+        setDongia (dongia);
         //parents
+        if (setRelationship && mabs!=null) {
+            this.mabs = new Bacsi();
+            this.mabs.setMabs(mabs);
+            setMabs_ (mabs);
+        }
     }
 
     public Dichvu flat() {
         return new Dichvu(
                 getMadv(),
                 getTendv(),
-                getDongia()
+                getDongia(),
+                getMabs_()
                 , false
         );
     }
@@ -103,7 +117,6 @@ public class Dichvu implements Serializable {
         this.tendv = tendv;
     }
 
-
     public java.math.BigDecimal getDongia() {
         return dongia;
     }
@@ -112,18 +125,19 @@ public class Dichvu implements Serializable {
         this.dongia = dongia;
     }
 
-    public Set<Chitietdichvu> getChitietdichvuDichvuViaMadv() {
-        if (chitietdichvuDichvuViaMadv == null) {
-            chitietdichvuDichvuViaMadv = new HashSet<Chitietdichvu>();
-        }
-        return chitietdichvuDichvuViaMadv;
+    public Bacsi getMabs () {
+        return mabs;
     }
 
-    public void setChitietdichvuDichvuViaMadv(Set<Chitietdichvu> chitietdichvuDichvuViaMadv) {
-        this.chitietdichvuDichvuViaMadv = chitietdichvuDichvuViaMadv;
+    public void setMabs (Bacsi mabs) {
+        this.mabs = mabs;
     }
 
-    public void addChitietdichvuDichvuViaMadv(Chitietdichvu element) {
-        getChitietdichvuDichvuViaMadv().add(element);
+    public String getMabs_() {
+        return mabs_;
+    }
+
+    public void setMabs_ (String mabs) {
+        this.mabs_ =  mabs;
     }
 }

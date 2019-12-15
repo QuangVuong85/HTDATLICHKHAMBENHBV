@@ -26,6 +26,8 @@ import com.htdatlichkbbv.datlichkb.entities.Nguoidung;
         , @NamedQuery(name = Bacsi.FIND_BY_TENBS_CONTAINING, query = "SELECT a FROM Bacsi a WHERE a.tenbs like :tenbs")
         , @NamedQuery(name = Bacsi.FIND_BY_CHUCVU, query = "SELECT a FROM Bacsi a WHERE a.chucvu = :chucvu")
         , @NamedQuery(name = Bacsi.FIND_BY_CHUCVU_CONTAINING, query = "SELECT a FROM Bacsi a WHERE a.chucvu like :chucvu")
+        , @NamedQuery(name = Bacsi.FIND_BY_HOCVI, query = "SELECT a FROM Bacsi a WHERE a.hocvi = :hocvi")
+        , @NamedQuery(name = Bacsi.FIND_BY_HOCVI_CONTAINING, query = "SELECT a FROM Bacsi a WHERE a.hocvi like :hocvi")
         , @NamedQuery(name = Bacsi.FIND_BY_HINHANH, query = "SELECT a FROM Bacsi a WHERE a.hinhanh = :hinhanh")
         , @NamedQuery(name = Bacsi.FIND_BY_HINHANH_CONTAINING, query = "SELECT a FROM Bacsi a WHERE a.hinhanh like :hinhanh")
 })
@@ -36,8 +38,11 @@ public class Bacsi implements Serializable {
     public static final String FIND_BY_TENBS_CONTAINING = "Bacsi.findByTenbsContaining";
     public static final String FIND_BY_CHUCVU = "Bacsi.findByChucvu";
     public static final String FIND_BY_CHUCVU_CONTAINING = "Bacsi.findByChucvuContaining";
+    public static final String FIND_BY_HOCVI = "Bacsi.findByHocvi";
+    public static final String FIND_BY_HOCVI_CONTAINING = "Bacsi.findByHocviContaining";
     public static final String FIND_BY_HINHANH = "Bacsi.findByHinhanh";
     public static final String FIND_BY_HINHANH_CONTAINING = "Bacsi.findByHinhanhContaining";
+
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "MaBS", length = 10)
@@ -49,6 +54,9 @@ public class Bacsi implements Serializable {
     @Column(name = "ChucVu", length = 100, nullable = true, unique = false)
     private String chucvu;
 
+    @Column(name = "HocVi", length = 100, nullable = true, unique = false)
+    private String hocvi;
+
     @Column(name = "HinhAnh", length = 500, nullable = true, unique = false)
     private String hinhanh;
 
@@ -58,7 +66,7 @@ public class Bacsi implements Serializable {
             nullable = true, unique = false, insertable = false, updatable = false)
     private Khoa makhoa;
 
-//    @JsonIgnore
+    //    @JsonIgnore
     @Column(name = "MaKhoa", length = 10, nullable = true,
             unique = false, insertable = true, updatable = true)
     private String makhoa_;
@@ -69,10 +77,15 @@ public class Bacsi implements Serializable {
             nullable = true, unique = true, insertable = false, updatable = false)
     private Nguoidung matk;
 
-//    @JsonIgnore
+    //    @JsonIgnore
     @Column(name = "MaTK", length = 10, nullable = true,
             unique = true, insertable = true, updatable = true)
     private String matk_;
+
+    @JsonIgnore
+    @OneToMany(targetEntity = com.htdatlichkbbv.datlichkb.entities.Dichvu.class,
+            fetch = FetchType.LAZY, mappedBy = "mabs", cascade = CascadeType.REMOVE)
+    private Set<Dichvu> dichvuBacsiViaMabs = new HashSet<Dichvu>();
 
     @JsonIgnore
     @OneToMany(targetEntity = com.htdatlichkbbv.datlichkb.entities.Lichhen.class,
@@ -97,6 +110,7 @@ public class Bacsi implements Serializable {
             String mabs,
             String tenbs,
             String chucvu,
+            String hocvi,
             String hinhanh,
             String makhoa,
             String matk) {
@@ -104,6 +118,7 @@ public class Bacsi implements Serializable {
                 mabs,
                 tenbs,
                 chucvu,
+                hocvi,
                 hinhanh,
                 makhoa,
                 matk
@@ -114,6 +129,7 @@ public class Bacsi implements Serializable {
             String mabs,
             String tenbs,
             String chucvu,
+            String hocvi,
             String hinhanh,
             String makhoa,
             String matk
@@ -123,6 +139,7 @@ public class Bacsi implements Serializable {
         //attributes
         setTenbs(tenbs);
         setChucvu(chucvu);
+        setHocvi(hocvi);
         setHinhanh(hinhanh);
         //parents
         if (setRelationship && makhoa != null) {
@@ -142,6 +159,7 @@ public class Bacsi implements Serializable {
                 getMabs(),
                 getTenbs(),
                 getChucvu(),
+                getHocvi(),
                 getHinhanh(),
                 getMakhoa_(),
                 getMatk_()
@@ -171,6 +189,14 @@ public class Bacsi implements Serializable {
 
     public void setChucvu(String chucvu) {
         this.chucvu = chucvu;
+    }
+
+    public String getHocvi() {
+        return hocvi;
+    }
+
+    public void setHocvi(String hocvi) {
+        this.hocvi = hocvi;
     }
 
     public String getHinhanh() {

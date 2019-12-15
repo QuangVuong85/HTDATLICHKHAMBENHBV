@@ -1,16 +1,15 @@
 --drop database datlichkhambenhbv;
 
-INSERT into nhomngdung (ma_nhomnd, ten_nhomnd) VALUES('N01', 'Quản trị');
-INSERT into nhomngdung (ma_nhomnd, ten_nhomnd) VALUES('N02', 'Trưởng khoa');
-INSERT into nhomngdung (ma_nhomnd, ten_nhomnd) VALUES('N03', 'Bác sĩ');
-INSERT into nhomngdung (ma_nhomnd, ten_nhomnd) VALUES('N04', 'Y tá');
-INSERT into nhomngdung (ma_nhomnd, ten_nhomnd) VALUES('N05', 'Bệnh nhân');
+INSERT into nhomngdung (ma_nhomnd, ten_nhomnd) VALUES('N1', 'Quản trị');
+INSERT into nhomngdung (ma_nhomnd, ten_nhomnd) VALUES('N2', 'Biên tập');
+INSERT into nhomngdung (ma_nhomnd, ten_nhomnd) VALUES('N3', 'Bác sĩ');
+INSERT into nhomngdung (ma_nhomnd, ten_nhomnd) VALUES('N4', 'Bệnh nhân');
 
-insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values('1111', 'N01', '123456', 'vuongdq1');
-insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values('1112', 'N02', '123456', 'vuongdq2');
-insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values('TK01', 'N01', 'vuong123','vuonggv');
-insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values ('TK02', 'N02','vuongs2gv','vuonggv');
-insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values ('TK03','N03','nam123','123');
+insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values('TK04', 'N1', '123456', 'vuongdq1');
+insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values('TK05', 'N2', '123456', 'vuongdq2');
+insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values('TK01', 'N1', 'vuong123','vuonggv');
+insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values ('TK02', 'N2','vuongs2gv','vuonggv');
+insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values ('TK03','N3','nam123','123');
 
 insert into KHOA (ma_khoa, ten_khoa, sodt) values ('K01',N'CƠ-XƯƠNG-KHỚP','0371263881');
 insert into KHOA (ma_khoa, ten_khoa, sodt) values ('K02',N'THẦN KINH','0371263821');

@@ -35,17 +35,17 @@ public class ChitietdichvuController {
             MediaType.APPLICATION_XML_VALUE})
     @ResponseBody
     public ResponseData<Chitietdichvu> getChitietdichvu(
-            @RequestParam(value = "madv", required = false) String madv,
+            @RequestParam(value = "magk", required = false) String magk,
             @RequestParam(value = "malichhen", required = false) String malichhen
     ) {
         ResponseData<Chitietdichvu> response = new ResponseData<>();
         ChitietdichvuId chitietdichvuId = new ChitietdichvuId();
-        chitietdichvuId.setMadv(madv);
+        chitietdichvuId.setMagk(magk);
         chitietdichvuId.setMalichhen(malichhen);
 
         if (!chitietdichvuService.findById(chitietdichvuId).isPresent()) {
             response.setCode(500);
-            response.setMessage("(MaDV, MaLichHen) Chitietdichvu (" + madv + ", " + malichhen + ") is not existed");
+            response.setMessage("(MaGK, MaLichHen) Chitietdichvu (" + magk + ", " + malichhen + ") is not existed");
             response.setData(null);
 
             return response;
@@ -68,7 +68,7 @@ public class ChitietdichvuController {
 
         if (chitietdichvuService.findById(chitietdichvuId).isPresent()) {
             response.setCode(500);
-            response.setMessage("(MaDV, MaLichHen) Chitietdichvu " + chitietdichvuId.getMadv()
+            response.setMessage("(MaGK, MaLichHen) Chitietdichvu " + chitietdichvuId.getMagk()
                     + ", " + chitietdichvuId.getMalichhen() + ") is existed");
             response.setData(null);
 
@@ -98,7 +98,7 @@ public class ChitietdichvuController {
 
         if (!chitietdichvuService.findById(chitietdichvuId).isPresent()) {
             response.setCode(500);
-            response.setMessage("(MaDV, MaLichHen) Chitietdichvu" + chitietdichvuId.getMadv()
+            response.setMessage("(magk, MaLichHen) Chitietdichvu" + chitietdichvuId.getMagk()
                     + ", " + chitietdichvuId.getMalichhen() + ") is not existed");
             response.setData(null);
 
@@ -121,17 +121,17 @@ public class ChitietdichvuController {
     @DeleteMapping(value = "/", produces = {MediaType.APPLICATION_JSON_VALUE,
             MediaType.APPLICATION_XML_VALUE})
     public ResponseData<Chitietdichvu> deleteChitietdichvu(
-            @RequestParam(value = "madv", required = false) String madv,
+            @RequestParam(value = "magk", required = false) String magk,
             @RequestParam(value = "malichhen", required = false) String malichhen
     ) {
         ResponseData<Chitietdichvu> response = new ResponseData<>();
         ChitietdichvuId chitietdichvuId = new ChitietdichvuId();
         chitietdichvuId.setMalichhen(malichhen);
-        chitietdichvuId.setMadv(madv);
+        chitietdichvuId.setMagk(magk);
 
         if (!chitietdichvuService.findById(chitietdichvuId).isPresent()) {
             response.setCode(500);
-            response.setMessage("(MaDV, MaLichHen) Chitietdichvu (" + madv + ", " + malichhen + ") is not existed");
+            response.setMessage("(magk, MaLichHen) Chitietdichvu (" + magk + ", " + malichhen + ") is not existed");
             response.setData(null);
 
             return response;
