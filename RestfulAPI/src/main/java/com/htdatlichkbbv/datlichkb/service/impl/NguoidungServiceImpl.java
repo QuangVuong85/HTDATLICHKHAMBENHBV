@@ -1,6 +1,7 @@
 package com.htdatlichkbbv.datlichkb.service.impl;
 
 import com.htdatlichkbbv.datlichkb.entities.Nguoidung;
+import com.htdatlichkbbv.datlichkb.entities.context.LoginContext;
 import com.htdatlichkbbv.datlichkb.repository.NguoidungRepository;
 import com.htdatlichkbbv.datlichkb.service.NguoidungService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,12 @@ public class NguoidungServiceImpl implements NguoidungService {
     @Override
     public Nguoidung update(Nguoidung nd) {
         return nguoidungRepository.save(nd);
+    }
+
+    @Override
+    public int findByNamePasswordTK(LoginContext loginContext) {
+        List<String> list = this.nguoidungRepository.findByNamePasswordTK(
+                loginContext.getTentk(), loginContext.getMatkhau());
+        return list.size();
     }
 }
