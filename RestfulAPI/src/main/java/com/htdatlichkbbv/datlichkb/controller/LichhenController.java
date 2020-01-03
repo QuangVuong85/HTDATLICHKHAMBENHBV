@@ -1,7 +1,10 @@
 package com.htdatlichkbbv.datlichkb.controller;
 
+import com.htdatlichkbbv.datlichkb.entities.Bacsi;
 import com.htdatlichkbbv.datlichkb.entities.Lichhen;
 import com.htdatlichkbbv.datlichkb.entities.context.LichhenContext;
+import com.htdatlichkbbv.datlichkb.entities.context.LichhenTheoBacsiContext;
+import com.htdatlichkbbv.datlichkb.service.BacsiService;
 import com.htdatlichkbbv.datlichkb.service.BenhnhanService;
 import com.htdatlichkbbv.datlichkb.service.LichhenService;
 import com.htdatlichkbbv.datlichkb.utils.Constant;
@@ -22,6 +25,9 @@ public class LichhenController {
 
     @Autowired
     private BenhnhanService benhnhanService;
+
+    @Autowired
+    private BacsiService bacsiService;
 
     @GetMapping(value = "", produces = {MediaType.APPLICATION_JSON_VALUE,
             MediaType.APPLICATION_XML_VALUE})
@@ -51,6 +57,34 @@ public class LichhenController {
         response.setCode(200);
         response.setMessage("Get data success");
         response.setData(ls);
+
+        return response;
+    }
+
+    @GetMapping(value = "/", produces = {MediaType.APPLICATION_JSON_VALUE,
+            MediaType.APPLICATION_XML_VALUE})
+    public ResponseData<LichhenTheoBacsiContext> getLichhenBS(
+            @RequestParam(name = "mabs") String id) {
+        ResponseData<LichhenTheoBacsiContext> response = new ResponseData<>();
+        LichhenTheoBacsiContext context = new LichhenTheoBacsiContext();
+        System.out.println(id);
+        if (!bacsiService.findById(id).isPresent()) {
+            response.setCode(500);
+            response.setMessage("Id bac si " + id + " is not existed");
+            response.setData(null);
+
+            return response;
+        }
+
+        Bacsi bs = this.bacsiService.findById(id).get();
+        System.out.println(bs);
+        List<Lichhen> lh = this.lichhenService.findByMaBS(id);
+
+        context.setBs(bs);
+        context.setLichhenList(lh);
+        response.setCode(200);
+        response.setMessage("Get data success");
+        response.setData(context);
 
         return response;
     }

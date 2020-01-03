@@ -1,6 +1,7 @@
 package com.htdatlichkbbv.datlichkb.service.impl;
 
 import com.htdatlichkbbv.datlichkb.entities.Bacsi;
+import com.htdatlichkbbv.datlichkb.entities.Khoa;
 import com.htdatlichkbbv.datlichkb.repository.BacsiRepository;
 import com.htdatlichkbbv.datlichkb.service.BacsiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,15 @@ public class BacsiServiceImpl implements BacsiService {
     public Bacsi update(Bacsi bs) {
         this.bacsiRepository.save(bs);
         return bs;
+    }
+
+    @Override
+    public List<Bacsi> getBSKhoa(String id) {
+        return this.bacsiRepository.getBSKhoa(id);
+    }
+
+    @Override
+    public Bacsi findBacsiByMatk_(String matk) {
+        return this.bacsiRepository.findBacsiByMatk_(matk);
     }
 }

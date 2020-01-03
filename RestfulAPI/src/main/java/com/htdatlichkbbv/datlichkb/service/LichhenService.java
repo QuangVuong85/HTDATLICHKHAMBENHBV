@@ -12,4 +12,6 @@ public interface LichhenService {
     void deleteById(String id);
     Lichhen update(Lichhen dichvu);
     void updateLichHenOld(String malichhen, String mabn, Short trangthai, String ghichu);
+
+    List<Lichhen> findByMaBS(String id);
 }

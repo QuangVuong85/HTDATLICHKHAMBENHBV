@@ -2,6 +2,9 @@ package com.htdatlichkbbv.datlichkb.service.impl;
 
 import com.htdatlichkbbv.datlichkb.entities.Nguoidung;
 import com.htdatlichkbbv.datlichkb.entities.context.LoginContext;
+import com.htdatlichkbbv.datlichkb.entities.context.LoginResBNContext;
+import com.htdatlichkbbv.datlichkb.entities.context.LoginResBSContext;
+import com.htdatlichkbbv.datlichkb.entities.context.LoginResContext;
 import com.htdatlichkbbv.datlichkb.repository.NguoidungRepository;
 import com.htdatlichkbbv.datlichkb.service.NguoidungService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,9 +46,19 @@ public class NguoidungServiceImpl implements NguoidungService {
     }
 
     @Override
-    public int findByNamePasswordTK(LoginContext loginContext) {
-        List<String> list = this.nguoidungRepository.findByNamePasswordTK(
+    public List<String> getByNamePasswordTK(LoginContext loginContext) {
+        List<String> list = this.nguoidungRepository.getByNamePasswordTK(
                 loginContext.getTentk(), loginContext.getMatkhau());
-        return list.size();
+        return list;
+    }
+
+    @Override
+    public List<LoginResBNContext> getInfoBenhNhan(String matk) {
+        return this.nguoidungRepository.getInfoBenhNhan(matk);
+    }
+
+    @Override
+    public List<LoginResBSContext> getInfoBacSi(String matk) {
+        return this.nguoidungRepository.getInfoBacSi(matk);
     }
 }

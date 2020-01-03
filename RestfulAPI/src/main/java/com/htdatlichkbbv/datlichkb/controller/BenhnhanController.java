@@ -41,11 +41,12 @@ public class BenhnhanController {
 
         if (!benhnhanService.findById(id).isPresent()) {
             response.setCode(500);
-            response.setMessage("Id BenhNhan " + id + " is not existed");
+            response.setMessage("Ma BenhNhan " + id + " is not existed");
             response.setData(null);
 
             return response;
         }
+
         Benhnhan ls = this.benhnhanService.findById(id).get();
         response.setCode(200);
         response.setMessage("Get data success");

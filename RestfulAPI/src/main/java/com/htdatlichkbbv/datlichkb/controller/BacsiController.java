@@ -31,6 +31,7 @@ public class BacsiController {
         ResponseData<List<Bacsi>> response = new ResponseData<>();
 
         List<Bacsi> ls = this.bacsiService.findAll();
+//        List<Bacsi> ls = this.bacsiService.getBSKhoa();
         response.setCode(200);
         response.setMessage("Get all data success");
         response.setData(ls);
@@ -50,6 +51,27 @@ public class BacsiController {
             return response;
         }
         Bacsi ls = this.bacsiService.findById(id).get();
+        response.setCode(200);
+        response.setMessage("Get data success");
+        response.setData(ls);
+
+        return response;
+    }
+
+    @GetMapping(value = "/", produces = {MediaType.APPLICATION_JSON_VALUE,
+            MediaType.APPLICATION_XML_VALUE})
+    public ResponseData<List<Bacsi>> getBacSiKhoa(
+            @RequestParam(name = "id") String id) {
+        ResponseData<List<Bacsi>> response = new ResponseData<>();
+
+        if (bacsiService.getBSKhoa(id).size() == 0) {
+            response.setCode(500);
+            response.setMessage("Id BacSi " + id + " is not existed");
+            response.setData(null);
+
+            return response;
+        }
+        List<Bacsi> ls = this.bacsiService.getBSKhoa(id);
         response.setCode(200);
         response.setMessage("Get data success");
         response.setData(ls);

@@ -11,6 +11,14 @@ insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values('TK01', 'N1', 'v
 insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values ('TK02', 'N2','vuongs2gv','vuonggv');
 insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values ('TK03','N3','nam123','123');
 
+insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values('TK06', 'N3', 'usertk06','vuonggv');
+insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values ('TK07', 'N3','usertk07','vuonggv');
+insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values ('TK08','N3','usertk08','123');
+
+insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values('TK09', 'N4', 'usertk09','vuonggv');
+insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values ('TK10', 'N4','usertk10','vuonggv');
+insert into nguoidung (matk, ma_nhomnd, mat_khau, tentk) values ('TK11','N4','usertk11','123');
+
 insert into KHOA (ma_khoa, ten_khoa, sodt) values ('K01',N'CƠ-XƯƠNG-KHỚP','0371263881');
 insert into KHOA (ma_khoa, ten_khoa, sodt) values ('K02',N'THẦN KINH','0371263821');
 insert into KHOA (ma_khoa, ten_khoa, sodt) values ('K03',N'TIÊU HÓA','0373213821');
@@ -45,9 +53,9 @@ INSERT INTO phongkham (mabs, ma_khoa, so_phong) VALUES ('BS02', 'K01', '1016');
 INSERT INTO phongkham (mabs, ma_khoa, so_phong) VALUES ('BS03', 'K01', '1017');
 
 
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN01',N'Nguyễn Văn Nam','1','0903847504','machinery@hcm.vnn.vn','128 Trần Tuấn Khải, P. 5, Q. 5','TK03');
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN02',N'Phạm Thị Hồng Thủy','0','0903847629','tmt-art@yahoo.com','5 Lê Thị Riêng, P. Bến Thành, Q. 1','TK01');
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN03',N'Lê Văn Tuyến','1','0903847694','tanphatlinh@hcm.vnn.vn','377 Ngô Gia Tự, P. 3, Q. 10','TK02');
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN01',N'Nguyễn Văn Nam','1','0903847504','machinery@hcm.vnn.vn','128 Trần Tuấn Khải, P. 5, Q. 5','TK09');
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN02',N'Phạm Thị Hồng Thủy','0','0903847629','tmt-art@yahoo.com','5 Lê Thị Riêng, P. Bến Thành, Q. 1','TK10');
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN03',N'Lê Văn Tuyến','1','0903847694','tanphatlinh@hcm.vnn.vn','377 Ngô Gia Tự, P. 3, Q. 10','TK11');
 insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN04',N'Lê Tấn Hòa','1','0903847850','dang-thanh@hcm.fpt.vn','268 Lý Thường Kiệt, P. 6, Q. Tân Bình',null);
 insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN05',N'Bùi Bích Hằng','0','0903848643','sales@ad-smart.com','29 Võ Văn Tần, P. 6, Q. 3',null);
 insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN06',N'Nguyễn Thị Thanh Hà','0','0903848666','phusa@fusaco.com.vn','278C Nam Kỳ Khởi Nghĩa, P. 8, Q. 3',null);
@@ -87,3 +95,66 @@ insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values
 insert into chitietdichvu (madv, ma_lich_hen, thoi_gian_dat, ghi_chu) values ('DV01', 'LH001' , current_timestamp, null);
 insert into chitietdichvu (madv, ma_lich_hen, thoi_gian_dat, ghi_chu) values ('DV02', 'LH008' , current_timestamp, null);
 insert into chitietdichvu (madv, ma_lich_hen, thoi_gian_dat, ghi_chu) values ('DV03', 'LH015' , current_timestamp, null);
+
+--PROCEDURE
+
+DELIMITER //
+CREATE PROCEDURE getBenhnhanBacsiByMatk
+(
+	IN mataikhoan varchar(50),
+	IN manhomngdung varchar(50)
+)
+BEGIN
+	IF (manhomngdung = 'N3')
+	THEN
+		SELECT 
+			nd.matk,
+			nd.ma_nhomnd,
+			bs.mabs,
+			bs.chuc_vu,
+			bs.hinh_anh,
+			bs.hoc_vi,
+			bs.ma_khoa,
+			bs.tenbs
+		FROM nguoidung nd
+		INNER JOIN bacsi bs
+		ON nd.matk = bs.matk
+		WHERE nd.matk = mataikhoan;
+	ELSE
+		IF (manhomngdung = 'N4')
+		THEN
+			SELECT 
+				nd.matk,
+				nd.ma_nhomnd,
+				bn.mabn,
+				bn.dia_chi,
+				bn.email,
+				bn.gioi_tinh,
+				bn.ho_ten,
+				bn.sodt
+			FROM nguoidung nd
+			INNER JOIN benhnhan bn
+			ON nd.matk = bn.matk
+			WHERE nd.matk = mataikhoan;
+		END IF;
+	END IF;
+END //
+DELIMITER ;
+
+CALL getBenhnhanBacsiByMatk('TK09', 'N4')
+
+DELIMITER //
+CREATE PROCEDURE GetDanhSachBacSiTheoKhoa(
+    IN makhoa VARCHAR(60)
+)
+BEGIN
+    SELECT *
+    FROM bacsi bs
+    WHERE bs.ma_khoa = makhoa;
+END //
+DELIMITER ;
+
+call GetDanhSachBacSiTheoKhoa('K01')
+
+-- Xoa proc
+DROP PROCEDURE getBenhnhanBacsiByMatk;

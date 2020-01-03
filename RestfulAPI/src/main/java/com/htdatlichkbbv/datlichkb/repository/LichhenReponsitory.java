@@ -1,5 +1,6 @@
 package com.htdatlichkbbv.datlichkb.repository;
 
+import com.htdatlichkbbv.datlichkb.entities.Bacsi;
 import com.htdatlichkbbv.datlichkb.entities.Lichhen;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -7,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Repository
 public interface LichhenReponsitory extends JpaRepository<Lichhen, String> {
@@ -22,4 +25,15 @@ public interface LichhenReponsitory extends JpaRepository<Lichhen, String> {
             String ghichu);
 
 
+    @Transactional
+    @Modifying
+    @Query(value = "select u.ma_lich_hen," +
+            "u.thoi_gian," +
+            "u.ngay_kham," +
+            "u.ghi_chu," +
+            "u.trang_thai," +
+            "u.mabs," +
+            "u.mabn from lichhen u where u.mabs = ?1",
+            nativeQuery = true)
+    List<Lichhen> findAllByMabs(String mabs);
 }

@@ -46,4 +46,9 @@ public class LichhenServiceImpl implements LichhenService {
     public void updateLichHenOld(String malichhen, String mabn, Short trangthai, String ghichu) {
         this.lichhenReponsitory.updateLichHenOld(malichhen, mabn, trangthai, ghichu);
     }
+
+    @Override
+    public List<Lichhen> findByMaBS(String id) {
+        return this.lichhenReponsitory.findAllByMabs(id);
+    }
 }
