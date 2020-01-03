@@ -11,4 +11,6 @@ public interface DichvuService {
     Dichvu save(Dichvu dichvu);
     void deleteById(String id);
     Dichvu update(Dichvu dichvu);
+
+    List<Dichvu> DanhSachDichVuCuaBacSi(String mabacsi);
 }

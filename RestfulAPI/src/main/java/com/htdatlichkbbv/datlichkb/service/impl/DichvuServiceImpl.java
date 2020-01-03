@@ -41,4 +41,8 @@ public class DichvuServiceImpl implements DichvuService {
         this.dichvuRepository.save(dichvu);
         return dichvu;
     }
+    @Override
+    public List<Dichvu> DanhSachDichVuCuaBacSi(String mabacsi){
+        return this.dichvuRepository.DichVuCuaBacSi(mabacsi);
+    }
 }

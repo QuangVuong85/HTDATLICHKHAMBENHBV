@@ -20,4 +20,5 @@ public interface BacsiRepository extends JpaRepository<Bacsi, String> {
     public List<Bacsi> getBSKhoa(String makhoa);
 
     Bacsi findBacsiByMatk_(String matk);
+
 }

@@ -14,4 +14,6 @@ public interface LichhenService {
     void updateLichHenOld(String malichhen, String mabn, Short trangthai, String ghichu);
 
     List<Lichhen> findByMaBS(String id);
+
+    List<Lichhen> DanhSachLichHenCuaBacSi(String mabs);
 }

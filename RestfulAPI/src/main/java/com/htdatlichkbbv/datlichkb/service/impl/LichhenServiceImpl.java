@@ -51,4 +51,9 @@ public class LichhenServiceImpl implements LichhenService {
     public List<Lichhen> findByMaBS(String id) {
         return this.lichhenReponsitory.findAllByMabs(id);
     }
+
+    @Override
+    public List<Lichhen> DanhSachLichHenCuaBacSi(String mabacsi){
+        return this.lichhenReponsitory.LichHenCuaBacSi(mabacsi);
+    }
 }

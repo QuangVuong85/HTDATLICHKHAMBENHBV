@@ -1,11 +1,14 @@
 package com.htdatlichkbbv.datlichkb.controller;
 
 import com.htdatlichkbbv.datlichkb.entities.Bacsi;
+import com.htdatlichkbbv.datlichkb.entities.Dichvu;
 import com.htdatlichkbbv.datlichkb.entities.Lichhen;
+import com.htdatlichkbbv.datlichkb.entities.context.LichHenCuaBacSiContext;
 import com.htdatlichkbbv.datlichkb.entities.context.LichhenContext;
 import com.htdatlichkbbv.datlichkb.entities.context.LichhenTheoBacsiContext;
 import com.htdatlichkbbv.datlichkb.service.BacsiService;
 import com.htdatlichkbbv.datlichkb.service.BenhnhanService;
+import com.htdatlichkbbv.datlichkb.service.DichvuService;
 import com.htdatlichkbbv.datlichkb.service.LichhenService;
 import com.htdatlichkbbv.datlichkb.utils.Constant;
 import com.htdatlichkbbv.datlichkb.utils.ResponseData;
@@ -25,6 +28,9 @@ public class LichhenController {
 
     @Autowired
     private BenhnhanService benhnhanService;
+
+    @Autowired
+    private  DichvuService dichvuService;
 
     @Autowired
     private BacsiService bacsiService;
@@ -60,34 +66,34 @@ public class LichhenController {
 
         return response;
     }
-
     @GetMapping(value = "/", produces = {MediaType.APPLICATION_JSON_VALUE,
             MediaType.APPLICATION_XML_VALUE})
-    public ResponseData<LichhenTheoBacsiContext> getLichhenBS(
-            @RequestParam(name = "mabs") String id) {
-        ResponseData<LichhenTheoBacsiContext> response = new ResponseData<>();
-        LichhenTheoBacsiContext context = new LichhenTheoBacsiContext();
-        System.out.println(id);
-        if (!bacsiService.findById(id).isPresent()) {
+    public ResponseData<LichHenCuaBacSiContext> getLichhenCuaBacSi(
+            @RequestParam(name = "mabacsi") String mabacsi) {
+        ResponseData<LichHenCuaBacSiContext> response = new ResponseData<>();
+        System.out.println(mabacsi);
+        if (!bacsiService.findById(mabacsi).isPresent()) {
             response.setCode(500);
-            response.setMessage("Id bac si " + id + " is not existed");
+            response.setMessage("bác sĩ có mã " + mabacsi + "chưa có lịch hẹn");
             response.setData(null);
 
             return response;
+        } else {
+            LichHenCuaBacSiContext lichHenCuaBacSiContext = new LichHenCuaBacSiContext();
+            Bacsi bacsi = this.bacsiService.findById(mabacsi).get();
+            List<Lichhen> lichhencuabacsi = this.lichhenService.DanhSachLichHenCuaBacSi(mabacsi);
+            List<Dichvu> dichvucuabacsi = this.dichvuService.DanhSachDichVuCuaBacSi(mabacsi);
+            lichHenCuaBacSiContext.setBacsi(bacsi);
+            lichHenCuaBacSiContext.setListDichVu(dichvucuabacsi);
+            lichHenCuaBacSiContext.setListLichHen(lichhencuabacsi);
+            response.setCode(200);
+            response.setMessage("Get data success");
+            response.setData(lichHenCuaBacSiContext);
+
+            return response;
         }
-
-        Bacsi bs = this.bacsiService.findById(id).get();
-        System.out.println(bs);
-        List<Lichhen> lh = this.lichhenService.findByMaBS(id);
-
-        context.setBs(bs);
-        context.setLichhenList(lh);
-        response.setCode(200);
-        response.setMessage("Get data success");
-        response.setData(context);
-
-        return response;
     }
+
 
     @PostMapping(value = "", produces = {MediaType.APPLICATION_JSON_VALUE,
             MediaType.APPLICATION_XML_VALUE})

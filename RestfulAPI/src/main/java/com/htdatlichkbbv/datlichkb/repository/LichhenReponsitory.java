@@ -35,5 +35,11 @@ public interface LichhenReponsitory extends JpaRepository<Lichhen, String> {
             "u.mabs," +
             "u.mabn from lichhen u where u.mabs = ?1",
             nativeQuery = true)
+
     List<Lichhen> findAllByMabs(String mabs);
+    @Transactional
+    @Modifying
+    @Query(value = "select lh.ma_lich_hen, lh.ghi_chu, lh.mabn, lh.mabs, lh.ngay_kham, lh.thoi_gian, lh.trang_thai from Lichhen lh where lh.mabs = ?1", nativeQuery = true)
+    List<Lichhen> LichHenCuaBacSi(String mabs);
+
 }
