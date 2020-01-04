@@ -6,6 +6,8 @@ import com.htdatlichkbbv.datlichkb.entities.context.LoginContext;
 import com.htdatlichkbbv.datlichkb.entities.context.LoginResBNContext;
 import com.htdatlichkbbv.datlichkb.entities.context.LoginResBSContext;
 import com.htdatlichkbbv.datlichkb.entities.context.LoginResContext;
+import com.htdatlichkbbv.datlichkb.service.BacsiService;
+import com.htdatlichkbbv.datlichkb.service.BenhnhanService;
 import com.htdatlichkbbv.datlichkb.service.NguoidungService;
 import com.htdatlichkbbv.datlichkb.utils.Constant;
 import com.htdatlichkbbv.datlichkb.utils.ResponseData;
@@ -24,6 +26,12 @@ public class LoginController {
 
     @Autowired
     private NguoidungService nguoidungService;
+
+    @Autowired
+    private BacsiService bacsiService;
+
+    @Autowired
+    private BenhnhanService benhnhanService;
     // use get ip address request
     @Autowired
     private HttpServletRequest request;
@@ -41,7 +49,17 @@ public class LoginController {
         if (list.size() != 0) {
             LoginResContext loginResContext = new LoginResContext();
             loginResContext.setMatk(list.get(0));
-            loginResContext.setMa_nhomnd(this.nguoidungService.findById(list.get(0)).get().getManhomnd_());
+            String manhomnd = this.nguoidungService.findById(list.get(0)).get().getManhomnd_();
+            loginResContext.setMa_nhomnd(manhomnd);
+            if (manhomnd.equals("N3")){
+                loginResContext.setBs(null);
+                loginResContext.setBn(null);
+            }
+
+            if (manhomnd.equals("N4")){
+                loginResContext.setBs(null);
+                loginResContext.setBn(null);
+            }
 
             response.setCode(200);
             response.setMessage("Login success");

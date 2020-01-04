@@ -1,5 +1,6 @@
 package com.htdatlichkbbv.datlichkb.repository;
 
+import com.htdatlichkbbv.datlichkb.entities.Bacsi;
 import com.htdatlichkbbv.datlichkb.entities.Benhnhan;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -13,5 +14,5 @@ import java.util.Optional;
 
 @Repository
 public interface BenhnhanRepository extends JpaRepository<Benhnhan, String> {
-
+    Benhnhan findBenhnhanByMatk_(String matk);
 }

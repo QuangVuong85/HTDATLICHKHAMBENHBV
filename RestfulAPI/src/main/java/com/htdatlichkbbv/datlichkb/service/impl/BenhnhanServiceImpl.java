@@ -41,4 +41,9 @@ public class BenhnhanServiceImpl implements BenhnhanService {
         this.benhnhanRepository.save(benhnhan);
         return benhnhan;
     }
+
+    @Override
+    public Benhnhan findBenhnhanByMatk_(String matk) {
+        return this.benhnhanRepository.findBenhnhanByMatk_(matk);
+    }
 }

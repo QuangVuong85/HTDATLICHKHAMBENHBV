@@ -11,4 +11,6 @@ public interface BenhnhanService {
     Benhnhan save(Benhnhan benhnhan);
     void deleteById(String id);
     Benhnhan update(Benhnhan benhnhan);
+
+    Benhnhan findBenhnhanByMatk_(String matk);
 }
