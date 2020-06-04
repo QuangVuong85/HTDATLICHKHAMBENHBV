@@ -1,6 +1,7 @@
 import { Breadcrumb } from 'antd';
 import React, { Component } from 'react';
-class BreadcrumbCustom extends React.Component {
+
+class BreadcrumbCustom extends Component {
 
   constructor(props) {
     super(props);

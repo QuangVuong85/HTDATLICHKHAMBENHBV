@@ -162,7 +162,7 @@ export function UserRegister(registerData){
     })
       .then(respone => respone.json())
       .then(data => {
-        if (data.code == 200) {
+        if (data.code === 200) {
           doctorInfo(data.data)
         } else {
           message.error(data.message, 5);
@@ -183,7 +183,7 @@ export function UserRegister(registerData){
     })
       .then(respone => respone.json())
       .then(data => {
-        if (data.code == 200) {
+        if (data.code === 200) {
           listService(data.data)
         } else {
           message.error(data.message, 5);

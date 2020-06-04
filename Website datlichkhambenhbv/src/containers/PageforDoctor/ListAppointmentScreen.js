@@ -15,7 +15,7 @@ class ListAppointmentScreen extends Component {
     document.title = "Phòng khám Đa khoa ReactJS Team - Lịch hẹn"
   }
 
-  componentWillMount() {
+  componentDidMount() {
     let tmpLichHen = []
     ListLichHen(lichhen => {
         for(let i = 0 ; i < lichhen.length ; i++){

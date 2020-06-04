@@ -125,7 +125,15 @@ class HomeAdminScreen extends Component {
               {collapsed ? (
                 <div />
               ) : (
-                <h3 style={{ color: "white", margin: "auto" }}>ADMIN TEAM</h3>
+                <h3 style={{ color: "white", margin: "auto" }}>
+                  <a 
+                    href="http://localhost:3000/admin/" 
+                    style={{
+                      color: "#FFFFFF",
+                    }}>
+                      ADMIN TEAM
+                  </a>
+                </h3>
               )}
             </div>
             <Menu theme="dark" mode="inline" onClick={this.onClickMenuItem}>
@@ -186,7 +194,7 @@ class HomeAdminScreen extends Component {
                   overlay={menuAuthen}
                   placement="bottomCenter"
                 >
-                  <a
+                  <div
                     style={{
                       display: "flex",
                       flexDirection: "row-reverse",
@@ -197,7 +205,7 @@ class HomeAdminScreen extends Component {
                     <p style={{ marginTop: -17, marginRight: 10 }}>
                       {adminInfo ? adminInfo.TenND : "Chưa đăng nhập"}
                     </p>
-                  </a>
+                  </div>
                 </Dropdown>
               </div>
             </Header>

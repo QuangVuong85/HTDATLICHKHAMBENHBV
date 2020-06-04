@@ -112,7 +112,15 @@ class HomeDoctorScreen extends Component {
               {collapsed ? (
                 <div />
               ) : (
-                <h3 style={{ color: "white", margin: "auto" }}>DOCTOR TEAM</h3>
+                <h3 style={{ color: "white", margin: "auto" }}>
+                  <a 
+                  href="http://localhost:3000/doctor/" 
+                  style={{
+                    color: "#FFFFFF",
+                  }}>
+                    DOCTOR TEAM
+                  </a>
+                </h3>
               )}
             </div>
             <Menu theme="dark" mode="inline" onClick={this.onClickMenuItem}>

@@ -20,6 +20,7 @@ class ScheduleComponents extends Component {
       }
     };
   }
+
   componentWillMount() {
     const { bacsiID } = this.props;
     ListService(data => this.setState({ service: data }));
@@ -27,6 +28,7 @@ class ScheduleComponents extends Component {
       this.setState({ bacsi: bacsi });
     });
   }
+
   render() {
     const { bacsi, service } = this.state;
     console.log(bacsi.bs.tenbs)
@@ -219,7 +221,7 @@ class ScheduleComponents extends Component {
                 style={{ marginLeft: 10, marginTop: 10 }}
                 type="primary"
                 size={"large"}
-                disabled={item.trangthai == 0 ? false : true}
+                disabled={item.trangthai === 0 ? false : true}
                 key={item.malichhen}
                 onClick={() =>
                   this.props.bookAppointment(item.malichhen, bacsi.bs.mabs)
