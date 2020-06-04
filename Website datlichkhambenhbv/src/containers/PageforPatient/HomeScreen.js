@@ -8,6 +8,7 @@ import DoctorInfoComponent from "../../components/PatientComponents/DoctorInfoCo
 import ServiceInfoComponent from "../../components/PatientComponents/ServiceInfoComponent";
 import UserInfoManager from "../../models/UserInfoManager";
 const UserInfoManagerInstance = UserInfoManager.getUserInfoManagerInstance();
+
 class HomeScreen extends Component {
   constructor(props) {
     super(props);

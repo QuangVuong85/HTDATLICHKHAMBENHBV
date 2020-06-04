@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import HeaderBar from "../../components/PatientComponents/HeaderBar";
 import ScheduleComponent from "../../components/PatientComponents/ScheduleComponent";
-import {DetailDoctor} from '../../apis/Api'
+import {DetailDoctor} from '../../apis/Api';
+
 class DetailInfoScreen extends Component {
   constructor(props) {
     super(props);

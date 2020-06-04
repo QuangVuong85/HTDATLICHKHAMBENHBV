@@ -2,10 +2,13 @@ import React, { Component } from "react";
 import { Button, DatePicker } from "antd";
 import moment from 'moment';
 import {ListService,DetailDoctor} from '../../apis/Api'
+import resourceImg from "../../resources/images/index";
+
 function onChange(date, dateString) {
   console.log(date, dateString);
 }
 const dateFormat = 'DD/MM/YYYY';
+
 class ScheduleComponents extends Component {
   constructor(props) {
     super(props);
@@ -64,6 +67,15 @@ class ScheduleComponents extends Component {
           >
             {bacsi.bs.chucvu}
           </h1>
+          <img 
+            style={{
+              fontSize: 18,
+              marginTop: -10,
+              //fontFamily: "Times New Roman",
+              width: "90%",
+              //fontWeight: "initial"
+            }}
+            src={resourceImg.img_bs} />
         </div>
         <div style={styles.itemContain}>
           <h1

@@ -11,6 +11,7 @@ import {
   Avatar
 } from "antd";
 import UserInfoManager from "../../models/UserInfoManager";
+
 const UserInfoManagerInstance = UserInfoManager.getUserInfoManagerInstance();
 class HeaderBar extends Component {
   constructor(props) {
@@ -85,7 +86,13 @@ class HeaderBar extends Component {
               fontWeight: "initial"
             }}
           >
-            PHÒNG KHÁM ĐA KHOA REACTJS TEAM
+            <a 
+              href="http://localhost:3000/" 
+              style={{
+                color: "#FFFFFF",
+              }}>
+                PHÒNG KHÁM ĐA KHOA REACTJS TEAM
+            </a>
           </h1>
           <h1
             style={{
