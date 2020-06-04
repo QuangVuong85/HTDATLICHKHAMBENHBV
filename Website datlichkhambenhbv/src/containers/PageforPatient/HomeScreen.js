@@ -3,6 +3,7 @@ import { Form, Icon, Input, Button, Checkbox, Modal } from "antd";
 import { withRouter } from "react-router-dom";
 import resourceImg from "../../resources/images/index";
 import HeaderBar from "../../components/PatientComponents/HeaderBar";
+import FooterBar from "../../components/PatientComponents/FooterBar";
 import DepartmentComponent from "../../components/PatientComponents/DepartmentComponent";
 import DoctorInfoComponent from "../../components/PatientComponents/DoctorInfoComponent";
 import ServiceInfoComponent from "../../components/PatientComponents/ServiceInfoComponent";
@@ -57,6 +58,7 @@ class HomeScreen extends Component {
       visible2: false
     });
   };
+  
   render() {
     const { userInfo } = this.state;
     return (
@@ -253,6 +255,7 @@ class HomeScreen extends Component {
             
           />
         </Modal>
+        <FooterBar />
       </div>
     );
   }

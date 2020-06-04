@@ -31,7 +31,7 @@ class HeaderBar extends Component {
     const {userInfo} = this.state;
     let menuAuthen = (
       <Menu theme="dark" onClick={(e) => {
-        if (e.key == '1') {
+        if (e.key === '1') {
           UserInfoManagerInstance.updateUserInfo(false);        
       }}}>
         <Menu.Item key="1" >
@@ -121,18 +121,17 @@ class HeaderBar extends Component {
             overlay={menuAuthen}
             placement="bottomCenter"
           >
-            <a
+            <div
               style={{
                 display: "flex",
                 flexDirection: "row-reverse",
-                color: "rgba(0, 0, 0, 0.65)"
-              }}
+                color: "rgba(0, 0, 0, 0.65)"}}
             >
               <Avatar icon="user" />
               <p style={{ marginRight: 10, color: "#FFFFFF", marginTop: 5 }}>
                 {userInfo ? userInfo.hoten : "Chưa đăng nhập"}
               </p>
-            </a>
+            </div>
           </Dropdown>
         </div>
       </div>
