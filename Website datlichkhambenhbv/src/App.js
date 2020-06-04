@@ -41,9 +41,11 @@ class App extends Component {
   componentWillUnmount() {
     UserInfoManagerInstance.removeObserver(this);
   }
+  
   onUserInfoChanged = () => {
     this.setState({ userInfo: UserInfoManagerInstance.userInfo });
   };
+
   render() {
     const {userInfo } = this.state;
     const PrivateRoute = ({ component: Component, ...rest }) => (

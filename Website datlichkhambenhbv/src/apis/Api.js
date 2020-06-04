@@ -203,7 +203,7 @@ export function UserRegister(registerData){
     })
       .then(respone => respone.json())
       .then(data => {
-        if (data.code == 200) {
+        if (data.code === 200) {
           lichhen(data.data)
         } else {
           message.error(data.message, 5);

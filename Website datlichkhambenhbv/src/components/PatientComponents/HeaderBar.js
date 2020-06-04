@@ -13,6 +13,7 @@ import {
 import UserInfoManager from "../../models/UserInfoManager";
 
 const UserInfoManagerInstance = UserInfoManager.getUserInfoManagerInstance();
+
 class HeaderBar extends Component {
   constructor(props) {
     super(props);
@@ -43,7 +44,7 @@ class HeaderBar extends Component {
     if (!userInfo) {
       menuAuthen = (
         <Menu theme="dark" onClick={(e)=>{
-            if(e.key == '1' ){
+            if(e.key === '1' ){
               this.props.login()
             }
         }}>

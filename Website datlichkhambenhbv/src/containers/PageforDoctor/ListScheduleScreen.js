@@ -39,7 +39,7 @@ class ListScheduleScreen extends Component {
         title: "Trạng thái",
         key: "trangthai",
         render: (record) =>
-        record.trangthai == 1 ? <span>Đã đặt</span> : <span>Chưa đặt</span>
+        record.trangthai === 1 ? <span>Đã đặt</span> : <span>Chưa đặt</span>
       },
       {
         title: "Hoạt động",
@@ -54,7 +54,7 @@ class ListScheduleScreen extends Component {
             ListLichHen(data => this.setState({data : data}))
           }}
         >
-          <a>Xóa</a>
+          <a href="#">Xóa</a>
         </Popconfirm>
         )
       }

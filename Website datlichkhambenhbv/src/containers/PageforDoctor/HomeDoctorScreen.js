@@ -84,7 +84,7 @@ class HomeDoctorScreen extends Component {
       <Menu
         theme="dark"
         onClick={e => {
-          if (e.key == "1") {
+          if (e.key === "1") {
             DoctorInfoManagerInstance.updateDoctorInfo(false);
           }
         }}
@@ -171,7 +171,7 @@ class HomeDoctorScreen extends Component {
                   overlay={menuAuthen}
                   placement="bottomCenter"
                 >
-                  <a
+                  <div
                     style={{
                       display: "flex",
                       flexDirection: "row-reverse",
@@ -182,7 +182,7 @@ class HomeDoctorScreen extends Component {
                     <p style={{ marginTop: -17, marginRight: 10 }}>
                       {doctorInfo ? doctorInfo.tenbs : "Chưa đăng nhập"}
                     </p>
-                  </a>
+                  </div>
                 </Dropdown>
               </div>
             </Header>

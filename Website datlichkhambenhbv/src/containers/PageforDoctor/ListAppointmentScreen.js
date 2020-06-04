@@ -16,14 +16,15 @@ class ListAppointmentScreen extends Component {
   }
 
   componentWillMount() {
-      let tmpLichHen = []
+    let tmpLichHen = []
     ListLichHen(lichhen => {
         for(let i = 0 ; i < lichhen.length ; i++){
+          console.log(lichhen[i].mabn_);
           if(lichhen[i].mabn_ !== null){
-             let id = lichhen[i].mabn_
+            let id = lichhen[i].mabn_
             DetailUser( id,data => {
               lichhen[i].hoten = data.hoten
-              lichhen[i].gioitinh = data.gioitinh == 1 ? 'Nam' :'Nữ'
+              lichhen[i].gioitinh = data.gioitinh === 1 ? 'Nam' :'Nữ'
               lichhen[i].sodt = data.sodt
               lichhen[i].diachi = data.diachi
             })

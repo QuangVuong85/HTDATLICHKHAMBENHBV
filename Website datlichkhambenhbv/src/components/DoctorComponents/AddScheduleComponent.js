@@ -5,9 +5,11 @@ import {
   TimePicker,
   DatePicker
 } from "antd";
+
 import { withRouter } from "react-router-dom";
 import {ListService,Add_LichHen,ListLichHen} from '../../apis/Api'
 import DoctorInfoManager from "../../models/DoctorInfoManager";
+
 const DoctorInfoManagerInstance = DoctorInfoManager.getDoctorInfoManagerInstance();
 const formItemLayout = {
   labelCol: {
@@ -22,7 +24,7 @@ const formItemLayout = {
 const format = "HH:mm";
 const dateFormat = "DD/MM/YYYY";
 
-class AddScheduleComponent extends React.Component {
+class AddScheduleComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,10 +34,12 @@ class AddScheduleComponent extends React.Component {
     };
     document.title = "Phòng khám Đa khoa ReactJS Team - Đăng ký";
   }
+
   componentWillMount(){
     ListService(dataService => this.setState({service : dataService}))
     ListLichHen(data => this.setState({listLichHen : data}))
   }
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, fieldsValue) => {
@@ -43,15 +47,16 @@ class AddScheduleComponent extends React.Component {
         var values = {
           ...fieldsValue,
           "ngaykham": fieldsValue["ngaykham"].format("DD/MM/YYYY"),
-          "thoigian": fieldsValue["ngaykham"].format("HH:mm")
+          "thoigian": fieldsValue["thoigian"].format("HH:mm")   //fieldsValue["ngaykham"] time now
         };
         
-        const{listLichHen,doctorInfo} = this.state
+        const{listLichHen, doctorInfo} = this.state;
+
         values.malichhen = `LH${listLichHen.length}`
-        values.mabs_ = doctorInfo.mabs
-        values.trangthai = 0
-         console.log("Received values of form: ", values);
-         Add_LichHen(values)
+        values.mabs_ = doctorInfo.mabs;
+        values.trangthai = 0;
+        console.log("Received values of form: ", values);
+        Add_LichHen(values);
       }
     });
   };

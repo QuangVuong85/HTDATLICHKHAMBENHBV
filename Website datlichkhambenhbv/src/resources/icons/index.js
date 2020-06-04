@@ -8,8 +8,17 @@ import user from '../icons/user.png';
 import department from '../icons/department.png';
 import clock from '../icons/clock.png';
 import degree from '../icons/degree.png';
+
 const icons = {
-    patient,email,gender,location,
-    phone,user,department,clock,degree
+    patient,
+    email,
+    gender,
+    location,
+    phone,
+    user,
+    department,
+    clock,
+    degree
 }
+
 export default icons;
