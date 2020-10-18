@@ -1,6 +1,7 @@
 package com.htdatlichkbbv.datlichkb.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Nationalized;
 
 import java.sql.*;
 import java.util.Date;
@@ -34,6 +35,7 @@ public class Goikham implements Serializable {
     private String magk;
 
     @Column(name = "TenGK", length = 500, nullable = false, unique = false)
+    @Nationalized
     private String tengk;
 
     @Column(name = "DonGia", precision = 8, scale = 2, nullable = false, unique = false)

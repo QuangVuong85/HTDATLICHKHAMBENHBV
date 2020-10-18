@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.htdatlichkbbv.datlichkb.entities.Lichhen;
 import com.htdatlichkbbv.datlichkb.entities.Nguoidatlich;
 import com.htdatlichkbbv.datlichkb.entities.Nguoidung;
+import org.hibernate.annotations.Nationalized;
 
 @Entity(name = "Benhnhan")
 @Table(name = "benhnhan")
@@ -49,6 +50,7 @@ public class Benhnhan implements Serializable {
     private String mabn;
 
     @Column(name = "HoTen", length = 100, nullable = true, unique = false)
+    @Nationalized
     private String hoten;
 
     @Column(name = "GioiTinh", nullable = false, unique = false)
@@ -61,6 +63,7 @@ public class Benhnhan implements Serializable {
     private String email;
 
     @Column(name = "DiaChi", length = 500, nullable = true, unique = false)
+    @Nationalized
     private String diachi;
 
     @JsonIgnore

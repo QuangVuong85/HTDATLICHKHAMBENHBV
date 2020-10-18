@@ -14,6 +14,7 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.htdatlichkbbv.datlichkb.entities.Chitietdichvu;
+import org.hibernate.annotations.Nationalized;
 
 @Entity(name = "Dichvu")
 @Table(name = "dichvu")
@@ -35,6 +36,7 @@ public class Dichvu implements Serializable {
     private String madv;
 
     @Column(name = "TenDV", length = 500, nullable = false, unique = false)
+    @Nationalized
     private String tendv;
 
     @Column(name = "DonGia", precision = 8, scale = 2, nullable = false, unique = false)

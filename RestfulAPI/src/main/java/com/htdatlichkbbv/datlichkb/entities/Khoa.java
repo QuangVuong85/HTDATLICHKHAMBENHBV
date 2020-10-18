@@ -15,6 +15,7 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.htdatlichkbbv.datlichkb.entities.Bacsi;
 import com.htdatlichkbbv.datlichkb.entities.Phongkham;
+import org.hibernate.annotations.Nationalized;
 
 @Entity(name = "Khoa")
 @Table(name = "khoa")
@@ -38,6 +39,7 @@ public class Khoa implements Serializable {
     private String makhoa;
 
     @Column(name = "TenKhoa", length = 100, nullable = true, unique = false)
+    @Nationalized
     private String tenkhoa;
 
     @Column(name = "SoDT", length = 10, nullable = true, unique = false)

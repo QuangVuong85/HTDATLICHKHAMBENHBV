@@ -17,6 +17,7 @@ import com.htdatlichkbbv.datlichkb.entities.Lichhen;
 import com.htdatlichkbbv.datlichkb.entities.Phongkham;
 import com.htdatlichkbbv.datlichkb.entities.Khoa;
 import com.htdatlichkbbv.datlichkb.entities.Nguoidung;
+import org.hibernate.annotations.Nationalized;
 
 @Entity(name = "Bacsi")
 @Table(name = "bacsi")
@@ -49,12 +50,15 @@ public class Bacsi implements Serializable {
     private String mabs;
 
     @Column(name = "TenBS", length = 100, nullable = true, unique = false)
+    @Nationalized
     private String tenbs;
 
     @Column(name = "ChucVu", length = 100, nullable = true, unique = false)
+    @Nationalized
     private String chucvu;
 
     @Column(name = "HocVi", length = 100, nullable = true, unique = false)
+    @Nationalized
     private String hocvi;
 
     @Column(name = "HinhAnh", length = 500, nullable = true, unique = false)
