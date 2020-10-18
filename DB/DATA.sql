@@ -1,4 +1,12 @@
---drop database datlichkhambenhbv;
+USE master
+GO
+DROP DATABASE datlichkhambenhbv
+GO
+CREATE DATABASE datlichkhambenhbv
+GO
+USE datlichkhambenhbv
+GO
+
 
 INSERT into nhomngdung (ma_nhomnd, ten_nhomnd) VALUES('N1', 'Quản trị');
 INSERT into nhomngdung (ma_nhomnd, ten_nhomnd) VALUES('N2', 'Biên tập');
@@ -53,18 +61,18 @@ INSERT INTO phongkham (mabs, ma_khoa, so_phong) VALUES ('BS02', 'K01', '1016');
 INSERT INTO phongkham (mabs, ma_khoa, so_phong) VALUES ('BS03', 'K01', '1017');
 
 
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN01',N'Nguyễn Văn Nam','1','0903847504','machinery@hcm.vnn.vn','128 Trần Tuấn Khải, P. 5, Q. 5','TK09');
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN02',N'Phạm Thị Hồng Thủy','0','0903847629','tmt-art@yahoo.com','5 Lê Thị Riêng, P. Bến Thành, Q. 1','TK10');
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN03',N'Lê Văn Tuyến','1','0903847694','tanphatlinh@hcm.vnn.vn','377 Ngô Gia Tự, P. 3, Q. 10','TK11');
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN04',N'Lê Tấn Hòa','1','0903847850','dang-thanh@hcm.fpt.vn','268 Lý Thường Kiệt, P. 6, Q. Tân Bình',null);
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN05',N'Bùi Bích Hằng','0','0903848643','sales@ad-smart.com','29 Võ Văn Tần, P. 6, Q. 3',null);
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN06',N'Nguyễn Thị Thanh Hà','0','0903848666','phusa@fusaco.com.vn','278C Nam Kỳ Khởi Nghĩa, P. 8, Q. 3',null);
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN07',N'Hồ Tấn Phong','1','0903849356','newlight@hcm.vnn.vn','79/5D8 Xô Viết Nghệ Tĩnh, P. 26, Q. Bình Thạnh',null);
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN08',N'Nguyễn Quang Vinh','1','0903852263','tanvietneon@email.viettel.vn','198 Cô Giang, P. Cô Giang, Q. 1',null);
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN09',N'Đậu Phi Minh Vương','1','0903849670','giaviet@giaviet.com.vn','371 Kiốt 8,Nguyễn Kiệm, P. 3, Q. Gò Vấp',null);
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN10',N'Nguyễn Ngọc Hiếu','1','0903852263','hungluat1067@yahoo.com','1067C1 Thoại Ngọc Hầu, P. Hòa Thạnh, Q. Tân Phú',null);
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN11',N'Trần Thanh Bình','1','0903854114','nhatanco@yahoo.com','176/14 Hòa Bình, P. Tân Thới Hòa, Q. Tân Phú',null);
-insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN12',N'Nguyễn Minh Hoàng','1','0903856592','batitrading@yahoo.com','159/3 Hoàng Văn Thụ, P. 8, Q. Phú Nhuận',null);
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN01',N'Nguyễn Văn Nam','1','0903847504','machinery@hcm.vnn.vn',N'128 Trần Tuấn Khải, P. 5, Q. 5','TK09');
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN02',N'Phạm Thị Hồng Thủy','0','0903847629','tmt-art@yahoo.com',N'5 Lê Thị Riêng, P. Bến Thành, Q. 1','TK10');
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN03',N'Lê Văn Tuyến','1','0903847694','tanphatlinh@hcm.vnn.vn',N'377 Ngô Gia Tự, P. 3, Q. 10','TK11');
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN04',N'Lê Tấn Hòa','1','0903847850','dang-thanh@hcm.fpt.vn',N'268 Lý Thường Kiệt, P. 6, Q. Tân Bình',null);
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN05',N'Bùi Bích Hằng','0','0903848643','sales@ad-smart.com',N'29 Võ Văn Tần, P. 6, Q. 3',null);
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN06',N'Nguyễn Thị Thanh Hà','0','0903848666','phusa@fusaco.com.vn',N'278C Nam Kỳ Khởi Nghĩa, P. 8, Q. 3',null);
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN07',N'Hồ Tấn Phong','1','0903849356','newlight@hcm.vnn.vn',N'79/5D8 Xô Viết Nghệ Tĩnh, P. 26, Q. Bình Thạnh',null);
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN08',N'Nguyễn Quang Vinh','1','0903852263','tanvietneon@email.viettel.vn',N'198 Cô Giang, P. Cô Giang, Q. 1',null);
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN09',N'Đậu Phi Minh Vương','1','0903849670','giaviet@giaviet.com.vn',N'371 Kiốt 8,Nguyễn Kiệm, P. 3, Q. Gò Vấp',null);
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN10',N'Nguyễn Ngọc Hiếu','1','0903852263','hungluat1067@yahoo.com',N'1067C1 Thoại Ngọc Hầu, P. Hòa Thạnh, Q. Tân Phú',null);
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN11',N'Trần Thanh Bình','1','0903854114','nhatanco@yahoo.com',N'176/14 Hòa Bình, P. Tân Thới Hòa, Q. Tân Phú',null);
+insert into benhnhan (mabn, ho_ten, gioi_tinh, sodt, email, dia_chi, matk) values ('BN12',N'Nguyễn Minh Hoàng','1','0903856592','batitrading@yahoo.com',N'159/3 Hoàng Văn Thụ, P. 8, Q. Phú Nhuận',null);
 
 insert into nguoidatlich (ma_nguoi_dat, ho_ten, sodt, email, mabn) values ('TN01',N'Nguyễn Ngọc Hiếu','0903852263','hungluat1067@yahoo.com', 'BN01');
 insert into nguoidatlich (ma_nguoi_dat, ho_ten, sodt, email, mabn) values ('TN02',N'Trần Thanh Bình','0903854114','nhatanco@yahoo.com','BN02');

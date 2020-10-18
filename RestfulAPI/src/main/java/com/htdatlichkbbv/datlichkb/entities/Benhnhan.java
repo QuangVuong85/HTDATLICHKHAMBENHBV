@@ -72,8 +72,8 @@ public class Benhnhan implements Serializable {
             nullable = true, unique = false, insertable = false, updatable = false)
     private Nguoidung matk;
 
-//    @JsonIgnore
-    @Column(name = "MaTK", length = 10, nullable = true, unique = true, insertable = true, updatable = true)
+    //    @JsonIgnore
+    @Column(name = "MaTK", length = 10, nullable = true, unique = false, insertable = true, updatable = true)
     private String matk_;
 
     @JsonIgnore
