@@ -68,27 +68,30 @@ insert into nguoidatlich (ma_nguoi_dat, ho_ten, sodt, email, mabn) values ('TN01
 insert into nguoidatlich (ma_nguoi_dat, ho_ten, sodt, email, mabn) values ('TN02',N'Trần Thanh Bình','0903854114','nhatanco@yahoo.com','BN02');
 insert into nguoidatlich (ma_nguoi_dat, ho_ten, sodt, email, mabn) values ('TN03',N'Nguyễn Minh Hoàng','0903856592','batitrading@yahoo.com','BN03');
 
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs, mabn) values ('LH001', '14/12/2019', '08:30', '0', 'BS01', 'BN01');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH002', '14/12/2019', '09:00', '0', 'BS01');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH003', '14/12/2019', '09:30', '0', 'BS01');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH004', '14/12/2019', '10:00', '0', 'BS01');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH005', '14/12/2019', '10:30', '0', 'BS01');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH006', '14/12/2019', '11:00', '0', 'BS01');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH007', '14/12/2019', '11:30', '0', 'BS01');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs, mabn) values ('LH008', '14/12/2019', '08:30', '0', 'BS02', 'BN02');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH009', '14/12/2019', '09:00', '0', 'BS02');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH010', '14/12/2019', '09:30', '0', 'BS02');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH011', '14/12/2019', '10:00', '0', 'BS02');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH012', '14/12/2019', '10:30', '0', 'BS02');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH013', '14/12/2019', '11:00', '0', 'BS02');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH014', '14/12/2019', '11:30', '0', 'BS02');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs, mabn) values ('LH015', '14/12/2019', '08:30', '0', 'BS03', 'BN03');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH016', '14/12/2019', '09:00', '0', 'BS03');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH017', '14/12/2019', '09:30', '0', 'BS03');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH018', '14/12/2019', '10:00', '0', 'BS03');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH019', '14/12/2019', '10:30', '0', 'BS03');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH020', '14/12/2019', '11:00', '0', 'BS03');
-insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH021', '14/12/2019', '11:30', '0', 'BS03');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs, mabn) values ('LH001', '11/12/2020',
+'08:30', '1', 'BS01', 'BN01');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH002', '11/12/2020', '09:00', '0', 'BS01');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH003', '11/12/2020', '09:30', '0', 'BS01');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH004', '11/12/2020', '10:00', '0', 'BS01');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH005', '11/12/2020', '10:30', '0', 'BS01');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH006', '11/12/2020', '11:00', '0', 'BS01');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH007', '11/12/2020', '11:30', '0', 'BS01');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs, mabn) values ('LH008', '11/12/2020',
+'08:30', '1', 'BS02', 'BN02');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH009', '11/12/2020', '09:00', '0', 'BS02');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH010', '11/12/2020', '09:30', '0', 'BS02');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH011', '11/12/2020', '10:00', '0', 'BS02');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH012', '11/12/2020', '10:30', '0', 'BS02');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH013', '11/12/2020', '11:00', '0', 'BS02');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH014', '11/12/2020', '11:30', '0', 'BS02');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs, mabn) values ('LH015', '11/12/2020',
+'08:30', '1', 'BS03', 'BN03');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH016', '11/12/2020', '09:00', '0', 'BS03');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH017', '11/12/2020', '09:30', '0', 'BS03');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH018', '11/12/2020', '10:00', '0', 'BS03');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH019', '11/12/2020', '10:30', '0', 'BS03');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH020', '11/12/2020', '11:00', '0', 'BS03');
+insert into lichhen (ma_lich_hen, ngay_kham, thoi_gian, trang_thai, mabs) values ('LH021', '11/12/2020', '11:30', '0', 'BS03');
 
 -- insert into chitietdichvu (madv, ma_lich_hen, thoi_gian_dat, ghi_chu) values ('DV01', 'LH001' , current_timestamp, null);
 -- insert into chitietdichvu (madv, ma_lich_hen, thoi_gian_dat, ghi_chu) values ('DV02', 'LH008' , current_timestamp, null);

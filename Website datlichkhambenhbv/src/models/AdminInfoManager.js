@@ -6,12 +6,12 @@ export default class AdminInfoManager{
         this.Observers[this.Observers.length] = observer
     }
     removeObserver(o){
-        this.Observers = this.Observers.filter((observer) => observer != o );
+        this.Observers = this.Observers.filter((observer) => observer !== o );
     }
     static getAdminInfoManagerInstance(){
         if(AdminInfoManager.AdminInfoManagerInstance == null){
             AdminInfoManager.AdminInfoManagerInstance = new AdminInfoManager();
-            this.AdminInfoManagerInstance.loadDataFromLocal();  
+            this.AdminInfoManagerInstance.loadDataFromLocal();
         }
         return this.AdminInfoManagerInstance;
     }
@@ -34,11 +34,11 @@ export default class AdminInfoManager{
     }
     loadDataFromLocal(){
 
-        var result = localStorage.getItem("AdminInfo");
+        const result = localStorage.getItem("AdminInfo");
         if(result !== undefined && JSON.parse(result) !== false){
-            
+
             this.adminInfo = JSON.parse(result)
-           
+
         } else{
             this.adminInfo = false;
         }

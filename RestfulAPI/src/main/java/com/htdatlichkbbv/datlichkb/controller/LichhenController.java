@@ -4,6 +4,7 @@ import com.htdatlichkbbv.datlichkb.entities.Bacsi;
 import com.htdatlichkbbv.datlichkb.entities.Lichhen;
 import com.htdatlichkbbv.datlichkb.entities.context.LichhenContext;
 import com.htdatlichkbbv.datlichkb.entities.context.LichhenTheoBacsiContext;
+import com.htdatlichkbbv.datlichkb.entities.context.TKLichHenBSContext;
 import com.htdatlichkbbv.datlichkb.service.BacsiService;
 import com.htdatlichkbbv.datlichkb.service.BenhnhanService;
 import com.htdatlichkbbv.datlichkb.service.LichhenService;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Null;
 import java.util.List;
 
 @RestController
@@ -85,6 +87,21 @@ public class LichhenController {
         response.setCode(200);
         response.setMessage("Get data success");
         response.setData(context);
+
+        return response;
+    }
+
+    @GetMapping(value = "/thong-ke", produces = {
+            MediaType.APPLICATION_JSON_VALUE,
+            MediaType.APPLICATION_XML_VALUE})
+    public ResponseData<List<TKLichHenBSContext>> getTKLichhenBS() {
+        ResponseData<List<TKLichHenBSContext>> response = new ResponseData<>();
+
+        List<TKLichHenBSContext> lh = this.lichhenService.tkLichHenBS();
+
+        response.setCode(200);
+        response.setMessage("Get data success");
+        response.setData(lh);
 
         return response;
     }

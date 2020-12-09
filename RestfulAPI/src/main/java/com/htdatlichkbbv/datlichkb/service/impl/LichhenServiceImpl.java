@@ -1,11 +1,14 @@
 package com.htdatlichkbbv.datlichkb.service.impl;
 
 import com.htdatlichkbbv.datlichkb.entities.Lichhen;
+import com.htdatlichkbbv.datlichkb.entities.context.ITKLichHenBSContext;
+import com.htdatlichkbbv.datlichkb.entities.context.TKLichHenBSContext;
 import com.htdatlichkbbv.datlichkb.repository.LichhenReponsitory;
 import com.htdatlichkbbv.datlichkb.service.LichhenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,5 +58,27 @@ public class LichhenServiceImpl implements LichhenService {
     @Override
     public List<Lichhen> DanhSachLichHenCuaBacSi(String mabacsi){
         return this.lichhenReponsitory.LichHenCuaBacSi(mabacsi);
+    }
+
+    @Override
+    public List<TKLichHenBSContext> tkLichHenBS(){
+        if (this.lichhenReponsitory.tkLichHenBS().size() == 0) {
+            return null;
+        }
+
+        List<TKLichHenBSContext> tk = new ArrayList<>();
+        List<ITKLichHenBSContext> ls =  this.lichhenReponsitory.tkLichHenBS();
+        for (ITKLichHenBSContext l : ls) {
+            TKLichHenBSContext tmp = new TKLichHenBSContext();
+            tmp.setMabs(l.getMabs());
+            tmp.setTenbs(l.getTenbs());
+            tmp.setNgaykham(l.getNgaykham());
+            tmp.setTrangthai(l.getTrangthai());
+            tmp.setSoluong(l.getSoluong());
+            tk.add(tmp);
+            System.out.println(tmp);
+        }
+
+        return tk;
     }
 }

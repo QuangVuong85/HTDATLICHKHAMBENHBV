@@ -1,6 +1,7 @@
 package com.htdatlichkbbv.datlichkb.service;
 
 import com.htdatlichkbbv.datlichkb.entities.Lichhen;
+import com.htdatlichkbbv.datlichkb.entities.context.TKLichHenBSContext;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,4 +17,6 @@ public interface LichhenService {
     List<Lichhen> findByMaBS(String id);
 
     List<Lichhen> DanhSachLichHenCuaBacSi(String mabs);
+
+    List<TKLichHenBSContext> tkLichHenBS();
 }
